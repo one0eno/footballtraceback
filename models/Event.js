@@ -23,4 +23,12 @@ const EventSchema = Schema({
   },
 });
 
+//quitando ids y propiedades que no se usan,
+//"SOLO PARA LA VISUALIZACIÓN NO PARA LA BASE DE DATOS, EN BASE DE DATOS SIGUE IGUAL"
+//EventSchema.method("toJSON", function () {
+//  const { __v, _id, ...object } = this.toObject();
+//  object.id = _id;
+//  return object;
+//});
+
 module.exports = model("Event", EventSchema);
