@@ -3,23 +3,24 @@ const { Schema, model } = require("mongoose");
 const EventSchema = Schema({
   title: {
     type: String,
-    require: true,
+    required: true,
   },
-  note: {
+  notes: {
     type: String,
   },
   start: {
     type: Date,
-    require: true,
+    required: true,
   },
   end: {
     type: Date,
-    require: true,
+    required: true,
   },
   user: {
     type: Schema.Types.ObjectId,
     ref: "Usuario",
+    required: true,
   },
 });
 
-module.exports = model("Event", UsuarioSchema);
+module.exports = model("Event", EventSchema);
