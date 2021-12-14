@@ -76,7 +76,6 @@ const loginUser = async (req, res = response) => {
         msg: "El usuario y/o contraseña no son correctos",
       });
     }
-
     //Generar JWT
     const token = await generarJWT(usuario.id, usuario.name);
 
@@ -108,7 +107,7 @@ const renewToken = async (req, res = response) => {
 
   const token = await generarJWT(uid, name);
 
-  res.json({ ok: true, token });
+  res.json({ ok: true, token, uid, name });
 };
 
 module.exports = {

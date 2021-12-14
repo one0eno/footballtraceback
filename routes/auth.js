@@ -8,6 +8,7 @@ const { Router } = require("express");
 const { check } = require("express-validator");
 const { createUser, renewToken, loginUser } = require("../controllers/auth");
 const validarCampos = require("../middlewares/validar-campos");
+const { validarJWT } = require("../middlewares/validar-jwt");
 
 const router = Router();
 /**grabar usuario */
@@ -28,7 +29,7 @@ router.post(
 router.post(
   "/",
   [
-    check("email", "Introduzca un email validos").isEmail(),
+    check("email", "Introduzca un email valido").isEmail(),
     check(
       "password",
       "El password ha de ser de 6 caracteres obligatorio"
@@ -38,6 +39,6 @@ router.post(
   loginUser
 );
 
-router.get("/renew", renewToken);
+router.get("/renew", validarJWT, renewToken);
 
 module.exports = router;
