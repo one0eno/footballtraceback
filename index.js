@@ -2,6 +2,7 @@ const express = require("express");
 const { dbConnection } = require("./database/config");
 const { validarJWT } = require("./middlewares/validar-jwt");
 require("dotenv").config();
+const path = require("path");
 const cors = require("cors");
 
 //console.log(process.env);
